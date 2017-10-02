@@ -20,8 +20,10 @@ socket.on('message', function(message){
     var $messages = $('.messages');
     var $message = $('<li class="list-group-item"></li>');
 
-    console.log('New message: ');
-    console.log(message.text);
+
+    if (!message.text.trim().length) {
+      return;
+    };
 
     $message.append('<p><strong>' + message.name + ' ' +momentTimestamp.local().format('h:mm:ss a') + '</strong></p>');
     $message.append('<p>' + message.text + '</p>');
