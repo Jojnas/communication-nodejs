@@ -28,6 +28,7 @@ socket.on('message', function(message){
     $message.append('<p><strong>' + message.name + ' ' +momentTimestamp.local().format('h:mm:ss a') + '</strong></p>');
     $message.append('<p>' + message.text + '</p>');
     $messages.append($message);
+    $("html, body").animate({ scrollTop: $(document).height()});
 });
 
 // POST submit
